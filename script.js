@@ -1,16 +1,16 @@
 function secondHighest(arr) {
-  
   if (arr.length <= 1) {
     return -Infinity;
   }
 
-  arr.sort((a, b) => b - a);
+  let first = Math.max(...arr);
+  let second = -Infinity;
 
-  for (let i = 1; i < arr.length; i++) {
-    if (arr[i] != arr[0]) {
-      return arr[i];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] < first && arr[i] > second) {
+      second = arr[i];
     }
   }
 
-  return -Infinity;
+  return second;
 }
